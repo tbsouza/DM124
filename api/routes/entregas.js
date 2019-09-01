@@ -1,5 +1,5 @@
 // Import the model for 'Entrga'
-import Entrega from '../models/Entrega';
+const Entrega = require('../models/Entrega.js');
 
 const express = require('express');
 const router = express.Router();
@@ -10,11 +10,12 @@ const notFound = require('../middleware/not-found');
 
 // List of all 'Entrega' saved
 let db = {};
+let sequence = 0;
 
 // POST: Create a 'Entrega'
 router.post('/', (request, response) => {
   
-  const idPedido = request.body.idPedido;
+  const idPedido = ++sequence;
   const idCliente = request.body.idCliente;
   const nomeRecebedor = request.body.nomeRecebedor;
   const cpfRecebedor = request.body.cpfRecebedor;
@@ -29,7 +30,7 @@ router.post('/', (request, response) => {
   // Add the 'Entrega' in the list
   db[idPedido] = entrega;
 
-  response.status(201).json(newTask);
+  response.status(201).json(entrega);
 });
 
 //GET: Retrieve all 'Entrega'
