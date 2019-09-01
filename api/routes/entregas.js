@@ -1,4 +1,4 @@
-// Import the model for 'Entrga'
+// Import the model for 'Entrega'
 const Entrega = require('../models/Entrega.js');
 
 const express = require('express');
@@ -19,7 +19,7 @@ router.get('/size', (request, response) => {
 });
 
 // POST: Create a 'Entrega'
-router.post('/', (request, response) => {
+router.post('/', checkAuth,  (request, response) => {
   
   const idPedido = ++sequence;
   const idCliente = request.body.idCliente;
@@ -57,7 +57,7 @@ router.get('/:idPedido', (request, response) => {
 });
 
 //PATCH: Update a 'Entrega' by id
-router.patch('/:idPedido', (request, response) => {
+router.patch('/:idPedido', checkAuth, (request, response) => {
   const entrega = db[request.params.idPedido];
 
   if(entrega) {
@@ -75,7 +75,7 @@ router.patch('/:idPedido', (request, response) => {
 });
 
 //DELETE: Delete a 'Entrega'
-router.delete('/:idPedido', (request, response) => {
+router.delete('/:idPedido', checkAuth, (request, response) => {
   const entrega = db[request.params.idPedido];
   if(entrega) {
     delete db[entrega.idPedido];
@@ -84,7 +84,5 @@ router.delete('/:idPedido', (request, response) => {
     notFound(request, response);
   }
 });
-
-
 
 module.exports = router;
