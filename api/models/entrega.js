@@ -12,6 +12,7 @@ class entrega{
             this.localização = localização;
     }
 
+    // Getters
     get idPedido(){
         return this.idPedido;
     }
@@ -38,5 +39,34 @@ class entrega{
 
     get localização(){
         return this.localização;
+    }
+
+    // Setters
+    set idPedido(idPedido){
+        this.idPedido = idPedido;
+    }
+
+    set idCliente(idCliente){
+        this.idCliente = idCliente;
+    }
+
+    set nomeRecebedor(nomeRecebedor){
+        this.nomeRecebedor = nomeRecebedor;
+    }
+
+    set cpfRecebedor(cpfRecebedor){
+        this.cpfRecebedor = cpfRecebedor;
+    }
+
+    set isComprador(isComprador){
+        this.isComprador = isComprador;
+    }
+
+    set dataHoraEntrega(dataHoraEntrega){
+        this.dataHoraEntrega = dataHoraEntrega;
+    }
+
+    set localização(localização){
+        this.localização = localização;
     }
 }
