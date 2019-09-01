@@ -1,8 +1,8 @@
-class entrega{
+class Entrega{
 
     constructor(idPedido, idCliente, nomeRecebedor, cpfRecebedor,
         isComprador, dataHoraEntrega, localização ){
-        
+            
             this.idPedido = idPedido;
             this.idCliente = idCliente;
             this.nomeRecebedor = nomeRecebedor;
