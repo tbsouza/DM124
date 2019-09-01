@@ -12,6 +12,12 @@ const notFound = require('../middleware/not-found');
 let db = {};
 let sequence = 0;
 
+// GET the size of db
+router.get('/size', (request, response) => {
+  const size = Object.keys(db).length;
+  response.json(size);
+});
+
 // POST: Create a 'Entrega'
 router.post('/', (request, response) => {
   
@@ -78,5 +84,7 @@ router.delete('/:idPedido', (request, response) => {
     notFound(request, response);
   }
 });
+
+
 
 module.exports = router;
