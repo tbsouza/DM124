@@ -1,4 +1,4 @@
-class Entrega{
+export default class Entrega{
 
     constructor(idPedido, idCliente, nomeRecebedor, cpfRecebedor,
         isComprador, dataHoraEntrega, localização ){

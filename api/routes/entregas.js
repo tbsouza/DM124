@@ -1,6 +1,10 @@
+// Import the model for 'Entrga'
+import Entrega from '../models/Entrega';
+
 const express = require('express');
 const router = express.Router();
 
+// Import middleware classes
 const checkAuth = require('../middleware/check-auth');
 const notFound = require('../middleware/not-found');
 
