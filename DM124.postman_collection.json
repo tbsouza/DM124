@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "0fd5df8e-82c3-4762-b4d2-ddfd1aba1973",
+		"name": "DM124",
+		"description": "Colletions to test the application for DM124.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9eb77b71-6088-4e7b-8ec1-8d40b8b148cf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BiVmzeLoxMViGyampEAc_b4aGRAb3fgCzjqq7YtPzmSwZzU9M4bVjIk6H8qD_wtPWxpuD-IJHgeKPU3ZOKWuG15qYAjiNp0iTIlxtnEm3-dhxWQln7Isc4XjtW_NycTcXP6qUdDw0JgYNVSCzuiXebBuL25jAxn8xUZp0PhtHWtaKeWOhn7StM3JckBvbozhDaWNDjuQuBmA4q5NiZSEiq0BxS1LcBMC2RKOlosuLEAEzvUuFEbgyHBke1PAtDASkmkrMR_8t9ZH2t7geEWelYpY46Y4lvJa4n6HniBH9hnZhYRxJNJuYkK4WfMukNeL7T1H2KFLjZMf0puvecL_t7wOfhNftbPVFew-4t2hPFwSQn1t71STYsMESxsSmfe_a621JSM9Dxjyn-GCLFb6PAyPJjQTQGB8iaMecLmj2gv0k1wqnlCands3A5PDybE1FWLLXScpHg4BK8sohGo6XTE3VY9zDzpUZ-R_EBlbQijN1KqMG0YvLFbPgGAR7VD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "http://localhost:8080/api/users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entregas",
+			"item": [
+				{
+					"name": "Get All Entregas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64ac209d-4acd-46c2-b135-655d54ff33f0",
+								"exec": [
+									"pm.test(\"Get all Entregas successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entregas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entregas"
+							]
+						},
+						"description": "http://localhost:8080/api/entregas"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "706626d1-df9c-43c5-90dc-b24ac0df1c86",
+								"exec": [
+									"pm.test(\"Create Entrega successfully\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "alunoinatel",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "dm124",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCliente\": 55667,\n    \"nomeRecebedor\": \"Thiago Souza\",\n    \"cpfRecebedor\": \"123.456.789-09\",\n    \"isComprador\": true,\n    \"dataHoraEntrega\": \"01/09/19 14:50:39\",\n    \"localização\": \"Santa Rita do Sapucai\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/entregas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entregas"
+							]
+						},
+						"description": "http://localhost:8080/api/"
+					},
+					"response": []
+				},
+				{
+					"name": "Test invalid route",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6e3be889-24b0-4199-9634-5584bdb8ad32",
+								"exec": [
+									"pm.test(\"Invalid route is Ok\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "alunoinatel",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "dm124",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/invalidRoute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"invalidRoute"
+							]
+						},
+						"description": "http://localhost:8080/api/invalidRoute"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Entrega by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99e709a8-aafa-446f-acd5-75a227590ad7",
+								"exec": [
+									"pm.test(\"Entrega deleted successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "alunoinatel",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "dm124",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entregas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entregas",
+								"2"
+							]
+						},
+						"description": "http://localhost:8080/api/entregas/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Entrega by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5bf2346f-5a12-4b87-af1e-f3f4121399ff",
+								"exec": [
+									"pm.test(\"Entrega updated successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "alunoinatel",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "dm124",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeRecebedor\": \"Thiago B de Souza\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/entregas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entregas",
+								"1"
+							]
+						},
+						"description": "http://localhost:8080/api/entregas/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Get number of Entregas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entregas/size",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entregas",
+								"size"
+							]
+						},
+						"description": "http://localhost:8080/api/entregas/size"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
