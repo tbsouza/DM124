@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/', (request, response) => {
   response.json([
-    'Thiago'
+    'Thiago',
+    'Edy'
   ])
 });
 
