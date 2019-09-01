@@ -1,4 +1,4 @@
-export default class Entrega{
+class Entrega{
 
     constructor(idPedido, idCliente, nomeRecebedor, cpfRecebedor,
         isComprador, dataHoraEntrega, localização ){
@@ -14,59 +14,61 @@ export default class Entrega{
 
     // Getters
     get idPedido(){
-        return this.idPedido;
+        return this._idPedido;
     }
 
     get idCliente(){
-        return this.idCliente;
+        return this._idCliente;
     }
 
     get nomeRecebedor(){
-        return this.nomeRecebedor;
+        return this._nomeRecebedor;
     }
 
     get cpfRecebedor(){
-        return this.cpfRecebedor;
+        return this._cpfRecebedor;
     }
 
     get isComprador(){
-        return this.isComprador;
+        return this._isComprador;
     }
 
     get dataHoraEntrega(){
-        return this.dataHoraEntrega;
+        return this._dataHoraEntrega;
     }
 
     get localização(){
-        return this.localização;
+        return this._localização;
     }
 
     // Setters
     set idPedido(idPedido){
-        this.idPedido = idPedido;
+        this._idPedido = idPedido;
     }
 
     set idCliente(idCliente){
-        this.idCliente = idCliente;
+        this._idCliente = idCliente;
     }
 
     set nomeRecebedor(nomeRecebedor){
-        this.nomeRecebedor = nomeRecebedor;
+        this._nomeRecebedor = nomeRecebedor;
     }
 
     set cpfRecebedor(cpfRecebedor){
-        this.cpfRecebedor = cpfRecebedor;
+        this._cpfRecebedor = cpfRecebedor;
     }
 
     set isComprador(isComprador){
-        this.isComprador = isComprador;
+        this._isComprador = isComprador;
     }
 
     set dataHoraEntrega(dataHoraEntrega){
-        this.dataHoraEntrega = dataHoraEntrega;
+        this._dataHoraEntrega = dataHoraEntrega;
     }
 
     set localização(localização){
-        this.localização = localização;
+        this._localização = localização;
     }
 }
+
+module.exports = Entrega;
