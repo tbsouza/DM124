@@ -1,5 +1,3 @@
-import '../models/Entrega';
-
 const express = require('express');
 const router = express.Router();
 
@@ -10,7 +8,7 @@ const notFound = require('../middleware/not-found');
 let db = {};
 
 // POST: Create a 'Entrega'
-router.post('/', checkAuth, (request, response) => {
+router.post('/', (request, response) => {
   
   const idPedido = request.body.idPedido;
   const idCliente = request.body.idCliente;
@@ -47,8 +45,8 @@ router.get('/:idPedido', (request, response) => {
     : notFound(request, response);
 });
 
-//PATCH: Update a 'Entrega'
-router.patch('/:idPedido', checkAuth, (request, response) => {
+//PATCH: Update a 'Entrega' by id
+router.patch('/:idPedido', (request, response) => {
   const entrega = db[request.params.idPedido];
 
   if(entrega) {
@@ -66,7 +64,7 @@ router.patch('/:idPedido', checkAuth, (request, response) => {
 });
 
 //DELETE: Delete a 'Entrega'
-router.delete('/:idPedido', checkAuth, (request, response) => {
+router.delete('/:idPedido', (request, response) => {
   const entrega = db[request.params.idPedido];
   if(entrega) {
     delete db[entrega.idPedido];
